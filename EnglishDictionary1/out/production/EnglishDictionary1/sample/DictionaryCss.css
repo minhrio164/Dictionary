@@ -1,0 +1,84 @@
+#word_input1{
+    -fx-background-color: #383c3f;
+    -fx-background-size:300px,300px ;
+    -fx-text-fill:#aab7bf;
+
+}
+#word_output1{
+    -fx-background-color: #383c3f;
+    -fx-text-fill:#aab7bf;
+}
+#buttonAdd{
+    -fx-graphic:url("/sample/image/plus-01.png") ;
+    -fx-graphic-size : 1px 1px ;
+    -fx-background-color: #383c3f;
+    -fx-text-fill:#7ba8fd ;
+    -fx-font-size: 13
+;
+
+}
+#rectangle1{
+    -fx-background-color:#383c3f ;
+}
+#word_list{
+
+    -fx-text-fill:#7ba8fd;
+}
+
+#buttonSub{
+    -fx-graphic:url("/sample/image/u-plus-01.png") ;
+    -fx-graphic-size : 1px 1px ;
+    -fx-background-color: #383c3f;
+    -fx-text-fill:#7ba8fd ;
+}
+#buttonRepair {
+    -fx-graphic: url("/sample/image/repair-01.png");
+    -fx-graphic-size: 1px 1px;
+    -fx-background-color: #383c3f;
+    -fx-text-fill: #7ba8fd;
+}
+#voiceButton{
+    -fx-graphic: url("/sample/image/sound-01.png");
+    -fx-graphic-size: 1px 1px;
+    -fx-background-color: #383c3f;
+}
+.list-view .scroll-bar:vertical {
+    -fx-opacity: 0;
+    -fx-padding:-10;
+}
+.list-view .list-cell:even {
+    -fx-background-color: #383c3f;
+    -fx-text-fill: #aab7bf;
+}
+.list-view .list-cell:odd {
+    -fx-background-color: #76838e;
+    -fx-text-fill: #383c3f;
+}
+#text1{
+    -fx-text-fill:#76838e;
+    -fx-font-size: 12;
+}
+#text2{
+    -fx-text-fill:#76838e;
+    -fx-font-size: 13;
+}
+#text3{
+    -fx-text-fill:#ffffff;
+    -fx-font-size: 15;
+    -fx-font-weight: 900;
+}
+#text4{
+    -fx-text-fill:#ffffff;
+    -fx-font-size: 15;
+    -fx-font-weight: 100;
+}
+#rootPane{
+    -fx-background-color:#000000;
+}
+#goBackRoot{
+    -fx-graphic: url("/sample/image/back-01.png");
+    -fx-graphic-size: 1px 1px;
+    -fx-background-color: #000;
+}
+
+
