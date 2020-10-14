@@ -10,7 +10,7 @@ import java.util.List ;
 
 public class DictionaryManagement extends Dictionary {
     static Dictionary dictionary = new Dictionary();
-    File fileDictionary = new File("/Users/apple/IdeaProjects/EnglishDictionary1/src/sample/LB.txt");
+    File fileDictionary = new File("/Users/apple/IdeaProjects/EnglishDictionary1/src/sample/Dictionary.txt");
 
     public static void insertFromCommandline() {
         Scanner sc = new Scanner(System.in);
@@ -67,10 +67,9 @@ public class DictionaryManagement extends Dictionary {
         dictionary.words.put(key, value);
     }
 
-    public void remove() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Remove word: ");
-        String key = sc.nextLine();
+    public void remove(String a) {
+
+        String key = a;
         for (Map.Entry<String, String> entry: dictionary.words.entrySet()) {
             if (key.equals(entry.getValue())) {
                 key = entry.getKey();
@@ -79,12 +78,11 @@ public class DictionaryManagement extends Dictionary {
         dictionary.words.remove(key);
     }
 
-    public void change() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the word you want to edit: ");
-        String editWord = sc.nextLine();// xin chao
-        System.out.print("Enter the correct word: ");
-        String corretWord = sc.nextLine();// hi
+    public void change(String a , String b) {
+
+        String editWord = a;
+
+        String corretWord = b;
         String str = editWord;
         for (Map.Entry<String, String> entry: dictionary.words.entrySet()) {
             if (entry.getValue().equals(editWord)) {
@@ -100,7 +98,7 @@ public class DictionaryManagement extends Dictionary {
 
     public void dictionaryExportToFile() {
         try {
-            File f = new File("LB.txt");
+            File f = new File("/Users/apple/IdeaProjects/EnglishDictionary1/src/sample/Dictionary.txt");
             FileWriter fw = new FileWriter(f);
             for (Map.Entry<String, String> entry: dictionary.words.entrySet()) {
                 fw.write(entry.getKey() + "\t" + entry.getValue() + "\n");

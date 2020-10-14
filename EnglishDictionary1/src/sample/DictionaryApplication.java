@@ -1,28 +1,23 @@
 package sample;
 
+import com.gtranslate.Audio;
+import com.gtranslate.Language;
+import javafx.animation.Animation;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import sample.commandline.DictionaryCommandline;
+import javazoom.jl.decoder.JavaLayerException;
 import sample.commandline.DictionaryManagement;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,8 +27,8 @@ public class DictionaryApplication extends Application {
         launch(args);
     }
 
-    public void start(Stage primaryStage)  {
-        DictionaryManagement dictionaryManagement = new DictionaryManagement() ;
+    public void start(Stage primaryStage) {
+        DictionaryManagement dictionaryManagement = new DictionaryManagement();
         dictionaryManagement.insertFromFile();
 
         primaryStage.setTitle("EnglishDictionary");
@@ -48,20 +43,18 @@ public class DictionaryApplication extends Application {
         rectangle1.setId("rectangle1");
 
 
-
-
         TextField word_input = new TextField();
         word_input.setLayoutX(10);
         word_input.setLayoutY(50);
         word_input.setId("word_input1");
-        word_input.setPrefSize(280,120);
+        word_input.setPrefSize(280, 120);
 
 
         TextField word_output = new TextField();
         word_output.setLayoutX(10);
         word_output.setLayoutY(180);
         word_output.setId("word_output1");
-        word_output.setPrefSize(280,70);
+        word_output.setPrefSize(280, 70);
 
         ListView<String> word_list = new ListView<>();
         word_list.setLayoutX(10);
@@ -119,15 +112,15 @@ public class DictionaryApplication extends Application {
         addWord_input.setLayoutX(10);
         addWord_input.setLayoutY(50);
         addWord_input.setId("word_input1");
-        addWord_input.setPrefSize(280,80);
+        addWord_input.setPrefSize(280, 80);
 
         TextField addword_output = new TextField();
         addword_output.setLayoutX(10);
         addword_output.setLayoutY(140);
         addword_output.setId("word_output1");
-        addword_output.setPrefSize(280,80);
+        addword_output.setPrefSize(280, 80);
 
-        Button  goBackRoot = new Button();
+        Button goBackRoot = new Button();
         goBackRoot.setLayoutX(10);
         goBackRoot.setLayoutY(10);
         goBackRoot.setId("goBackRoot");
@@ -156,14 +149,96 @@ public class DictionaryApplication extends Application {
         add_text3.setLayoutY(150);
         add_text3.setId("text2");
 
+        TextField subWord_input = new TextField();
+        subWord_input.setLayoutX(10);
+        subWord_input.setLayoutY(50);
+        subWord_input.setId("word_input1");
+        subWord_input.setPrefSize(280, 80);
 
-        String str = word_input.getText() ;
+        TextField subword_output = new TextField();
+        subword_output.setLayoutX(10);
+        subword_output.setLayoutY(140);
+        subword_output.setId("word_output1");
+        subword_output.setPrefSize(280, 80);
+
+        Button sub_goBackRoot = new Button();
+        sub_goBackRoot.setLayoutX(10);
+        sub_goBackRoot.setLayoutY(10);
+        sub_goBackRoot.setId("goBackRoot");
+
+        Button sub_SummitButton = new Button();
+        sub_SummitButton.setText("Remove");
+        sub_SummitButton.setLayoutX(110);
+        sub_SummitButton.setLayoutY(145);
+        sub_SummitButton.setId("buttonSub");
+
+        Label sub_text1 = new Label();
+        sub_text1.setText("Sub Screen");
+        sub_text1.setLayoutX(110);
+        sub_text1.setLayoutY(15);
+        sub_text1.setId("text4");
+
+        Label sub_text2 = new Label();
+        sub_text2.setText("Word Delete");
+        sub_text2.setLayoutX(18);
+        sub_text2.setLayoutY(60);
+        sub_text2.setId("text1");
+
+        Label sub_text3 = new Label();
+        sub_text3.setText("Vietnamese");
+        sub_text3.setLayoutX(18);
+        sub_text3.setLayoutY(150);
+        sub_text3.setId("text2");
+
+        TextField rePairWord_input = new TextField();
+        rePairWord_input.setLayoutX(10);
+        rePairWord_input.setLayoutY(50);
+        rePairWord_input.setId("word_input1");
+        rePairWord_input.setPrefSize(280, 80);
+
+        TextField rePairword_output = new TextField();
+        rePairword_output.setLayoutX(10);
+        rePairword_output.setLayoutY(140);
+        rePairword_output.setId("word_output1");
+        rePairword_output.setPrefSize(280, 80);
+
+        Button rePair_goBackRoot = new Button();
+        rePair_goBackRoot.setLayoutX(10);
+        rePair_goBackRoot.setLayoutY(10);
+        rePair_goBackRoot.setId("goBackRoot");
+
+        Button rePair_SummitButton = new Button();
+        rePair_SummitButton.setText("Add");
+        rePair_SummitButton.setLayoutX(110);
+        rePair_SummitButton.setLayoutY(230);
+        rePair_SummitButton.setId("buttonRepair");
+
+        Label repair_text1 = new Label();
+        repair_text1.setText("Repair Screen");
+        repair_text1.setLayoutX(100);
+        repair_text1.setLayoutY(15);
+        repair_text1.setId("text4");
+
+        Label repair_text2 = new Label();
+        repair_text2.setText("Repair Word");
+        repair_text2.setLayoutX(18);
+        repair_text2.setLayoutY(60);
+        repair_text2.setId("text1");
+
+        Label repair_text3 = new Label();
+        repair_text3.setText("New Vietnamese mean");
+        repair_text3.setLayoutX(18);
+        repair_text3.setLayoutY(150);
+        repair_text3.setId("text2");
+
+
+        String str = word_input.getText();
         word_output.setText(dictionaryManagement.dictionaryLookup(str));
         List<String> listString = new ArrayList<>();
         listString.clear();
-        listString = dictionaryManagement.dictionarySeacher(str) ;
+        listString = dictionaryManagement.dictionarySeacher(str);
         word_list.getItems().clear();
-        for(int i = 0; i <listString.size() ;i++)
+        for (int i = 0; i < listString.size(); i++)
             word_list.getItems().add(listString.get(i));
         word_input.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
@@ -172,10 +247,10 @@ public class DictionaryApplication extends Application {
                 word_output.setText(dictionaryManagement.dictionaryLookup(str));
                 List<String> listString = new ArrayList<>();
                 listString.clear();
-                listString = dictionaryManagement.dictionarySeacher(str) ;
+                listString = dictionaryManagement.dictionarySeacher(str);
                 Collections.sort(listString);
                 word_list.getItems().clear();
-                for(int i = 0 ; i< listString.size();i++)
+                for (int i = 0; i < listString.size(); i++)
                     word_list.getItems().add(listString.get(i));
             }
 
@@ -185,32 +260,89 @@ public class DictionaryApplication extends Application {
         Pane root = new Pane();
         root.setId("rootPane");
         root.getChildren().addAll(word_input,
-                word_output,word_list,rectangle1,addButton,
-                subButton,rePairButton,voiceButton,
-                text1,text2,text3,text4);
-        Scene sampleScreen = new Scene(root,300,510);
+                word_output, word_list, rectangle1, addButton,
+                subButton, rePairButton, voiceButton,
+                text1, text2, text3, text4);
+        Scene sampleScreen = new Scene(root, 300, 510);
         sampleScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
         // addScreen.
         Pane addViewScreen = new Pane();
         addViewScreen.setId("rootPane");
-        addViewScreen.getChildren().addAll(addWord_input,addword_output,goBackRoot,add_SummitButton,add_text1,add_text2,add_text3);
-        Scene addScreen = new Scene(addViewScreen,300,300);
+        addViewScreen.getChildren().addAll(addWord_input, addword_output, goBackRoot, add_SummitButton, add_text1, add_text2, add_text3);
+        Scene addScreen = new Scene(addViewScreen, 300, 300);
         addScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
-        addButton.setOnAction(e->primaryStage.setScene(addScreen));
-        goBackRoot.setOnAction(e->primaryStage.setScene(sampleScreen));
+        addButton.setOnAction(e -> primaryStage.setScene(addScreen));
+        goBackRoot.setOnAction(e -> primaryStage.setScene(sampleScreen));
 
         add_SummitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
-                dictionaryManagement.add(addWord_input.getText(),addword_output.getText());
+                dictionaryManagement.add(addWord_input.getText(), addword_output.getText());
                 System.out.println(addWord_input.getText() + addword_output.getText());
                 dictionaryManagement.dictionaryExportToFile();
-
+                Alert add_alert = new Alert(Alert.AlertType.INFORMATION);
+                add_alert.setContentText("Word Added: " + addWord_input.getText());
+                add_alert.show();
             }
         });
 
+        Pane subViewScreen = new Pane();
+        subViewScreen.setId("rootPane");
+        subViewScreen.getChildren().addAll(sub_goBackRoot, sub_SummitButton, subWord_input, sub_text1, sub_text2);
+        Scene subScreen = new Scene(subViewScreen, 300, 200);
+        subScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
+        subButton.setOnAction(e -> primaryStage.setScene(subScreen));
+        sub_goBackRoot.setOnAction(e -> primaryStage.setScene(sampleScreen));
+        sub_SummitButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dictionaryManagement.remove(subWord_input.getText());
+                dictionaryManagement.dictionaryExportToFile();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Word Deleted: " + subWord_input.getText());
+                alert.show();
+            }
+        });
 
+        Pane rePairViewScreen = new Pane();
+        rePairViewScreen.setId("rootPane");
+        rePairViewScreen.getChildren().addAll(rePair_goBackRoot,rePair_SummitButton,repair_text1,rePairWord_input,rePairword_output,repair_text2,repair_text3);
+        Scene rePairScreen = new Scene(rePairViewScreen, 300, 300);
+        rePairScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
+        rePairButton.setOnAction(e->primaryStage.setScene(rePairScreen));
+        rePair_goBackRoot.setOnAction(e->primaryStage.setScene(sampleScreen));
+        rePair_SummitButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dictionaryManagement.change(rePairWord_input.getText(),rePairword_output.getText());
+                dictionaryManagement.dictionaryExportToFile();
+                Alert repair_alert = new Alert(Alert.AlertType.INFORMATION);
+                repair_alert.setContentText("Word Repaired: " + rePairWord_input.getText() +"\n" + "New means " + rePairword_output.getText());
+                repair_alert.show();
+            }
+        });
+        voiceButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                InputStream sound = null;
+                try {
+                    System.out.println("Hello");
+                    Audio audio = Audio.getInstance() ;
+                    sound = audio.getAudio(word_input.getText(), Language.ENGLISH);
+                    audio.play(sound);
+                } catch (IOException | JavaLayerException e) {
+                    e.printStackTrace();
+                }   finally {
+                    try{
+                        sound.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
         primaryStage.setScene(sampleScreen);
         primaryStage.show();
 
