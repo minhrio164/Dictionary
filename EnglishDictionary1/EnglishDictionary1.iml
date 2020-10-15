@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="java-google-translate-text-to-speech" level="project" />
+    <orderEntry type="library" name="cmu_time_awb" level="project" />
   </component>
 </module>

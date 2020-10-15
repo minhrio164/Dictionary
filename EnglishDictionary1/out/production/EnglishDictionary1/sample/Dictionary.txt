@@ -1,8 +1,7 @@
-allow	cho phép
 appliance	đồ phụ tùng
+bred	nòi, giống
 predesigned	cho trước, thiết lập trước
-episperm	vỏ (hạt); bao (tinh trùng)
-book	vở
+book	sách
 about	ước chừng
 bring	cầm lại, đem lại, mang lại, xách lại, đưa lại
 entryway	lối đi vào
@@ -11,16 +10,15 @@ alphabet	bảng chữ cái
 briefing	sự chỉ dẫn tường tận
 a fortiori	huống hồ; huống là
 broadish	hơi rộng
-hanvuhoanglong	đẹp trai
 a font	thấu triệt; cặn kẽ; rõ ngọn nghành
 brigade	lữ đoàn
 absent	vắng mặt
-hate	ác
 bridecake	bánh cưới
 coiffeuse	thợ cắt tóc, thợ làm đầu
+all	tất cả
 apperceive	(tâm lý học) tổng giác
-a	một
 apparition	sự hiện ra, sự xuất hiện
+a	a
 bridal	đám cưới, tiệc cưới; liên hoan đám cưới
 breech	khoá nòng (súng)
 cohesively	gắn bó, liên kết

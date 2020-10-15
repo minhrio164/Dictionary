@@ -1,3 +1,4 @@
+
 #word_input1{
     -fx-background-color: #383c3f;
     -fx-background-size:300px,300px ;
@@ -10,7 +11,6 @@
 }
 #buttonAdd{
     -fx-graphic:url("/sample/image/plus-01.png") ;
-    -fx-graphic-size : 1px 1px ;
     -fx-background-color: #383c3f;
     -fx-text-fill:#7ba8fd ;
     -fx-font-size: 13
@@ -27,19 +27,16 @@
 
 #buttonSub{
     -fx-graphic:url("/sample/image/u-plus-01.png") ;
-    -fx-graphic-size : 1px 1px ;
     -fx-background-color: #383c3f;
     -fx-text-fill:#7ba8fd ;
 }
 #buttonRepair {
     -fx-graphic: url("/sample/image/repair-01.png");
-    -fx-graphic-size: 1px 1px;
     -fx-background-color: #383c3f;
     -fx-text-fill: #7ba8fd;
 }
 #voiceButton{
     -fx-graphic: url("/sample/image/sound-01.png");
-    -fx-graphic-size: 1px 1px;
     -fx-background-color: #383c3f;
 }
 .list-view .scroll-bar:vertical {
@@ -66,6 +63,7 @@
     -fx-text-fill:#ffffff;
     -fx-font-size: 15;
     -fx-font-weight: 900;
+
 }
 #text4{
     -fx-text-fill:#ffffff;
@@ -77,8 +75,22 @@
 }
 #goBackRoot{
     -fx-graphic: url("/sample/image/back-01.png");
-    -fx-graphic-size: 1px 1px;
+
     -fx-background-color: #000;
 }
+#APIbutton{
+    -fx-graphic:url("/sample/image/G-01.png") ;
+    -fx-graphic-size : 1px 1px ;
+    -fx-background-color: #383c3f;
+    -fx-text-fill:#7ba8fd ;
+    -fx-font-size: 13
+
+}
+#text5{
+    -fx-text-fill:#76838e;
+    -fx-font-size: 13;
+}
+
+
 
 

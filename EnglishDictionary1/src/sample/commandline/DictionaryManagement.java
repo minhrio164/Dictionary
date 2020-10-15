@@ -58,12 +58,16 @@ public class DictionaryManagement extends Dictionary {
         return Value;
     }
 
-    public void add(String a , String b) {
-
-        System.out.print("Add word: ");
-        String key = a ;
-        System.out.print(key +"Means: ");
-        String value = b ;
+    public void add(String word, String mean) {
+        String key = word;
+        String value = mean;
+        for (Map.Entry<String, String> entry: dictionary.words.entrySet()) {
+            if (entry.getKey().equals(key)) {
+                value += " || " + entry.getValue();
+            }
+        }
+        System.out.println(value);
+        dictionary.words.remove(key);
         dictionary.words.put(key, value);
     }
 
@@ -117,7 +121,9 @@ public class DictionaryManagement extends Dictionary {
                 newList.add(b+"\n");
                 System.out.println(newList);
             }
+
         }
+        newList.add(newList.size(),"ENGLISH DICTIONARY - LIST WORD ") ;
         return newList ;
     }
 
