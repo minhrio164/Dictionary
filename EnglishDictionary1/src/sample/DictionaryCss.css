@@ -17,6 +17,12 @@
 ;
 
 }
+#sameButton{
+    -fx-background-color: #383c3f;
+    -fx-text-fill:#7ba8fd ;
+    -fx-font-size: 13 ;
+
+}
 #rectangle1{
     -fx-background-color:#383c3f ;
 }

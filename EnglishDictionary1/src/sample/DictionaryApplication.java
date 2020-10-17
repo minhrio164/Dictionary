@@ -7,21 +7,22 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
+import sample.commandline.Dictionary;
 import sample.commandline.DictionaryManagement;
+
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static javafx.scene.text.Font.loadFont;
 
@@ -35,6 +36,7 @@ public class DictionaryApplication extends Application {
     public void start(Stage primaryStage) {
         DictionaryManagement dictionaryManagement = new DictionaryManagement();
         dictionaryManagement.insertFromFile();
+        sample.commandline.Dictionary dictionary = new Dictionary();
 
         primaryStage.setTitle("EnglishDictionary");
 
@@ -61,11 +63,11 @@ public class DictionaryApplication extends Application {
             word_output.setId("word_output1");
             word_output.setPrefSize(135, 70);
 
-        TextField word_APIoutput = new TextField();
-        word_APIoutput.setLayoutX(150);
-        word_APIoutput.setLayoutY(180);
-        word_APIoutput.setId("word_output1");
-        word_APIoutput.setPrefSize(140, 70);
+            TextField word_APIoutput = new TextField();
+            word_APIoutput.setLayoutX(150);
+            word_APIoutput.setLayoutY(180);
+            word_APIoutput.setId("word_output1");
+            word_APIoutput.setPrefSize(140, 70);
 
             ListView<String> word_list = new ListView<>();
             word_list.setLayoutX(10);
@@ -95,6 +97,7 @@ public class DictionaryApplication extends Application {
             voiceButton.setId("voiceButton");
             voiceButton.setLayoutX(10);
             voiceButton.setLayoutY(60);
+
             Label text1 = new Label();
             text1.setText("English");
             text1.setLayoutX(45);
@@ -106,6 +109,15 @@ public class DictionaryApplication extends Application {
             APIbutton.setLayoutX(220);
             APIbutton.setLayoutY(130);
             APIbutton.setId("APIbutton");
+
+            Button sameButton = new Button();
+            sameButton.setText("");
+            sameButton.setLayoutX(141);
+            sameButton.setLayoutY(80);
+            sameButton.setId("sameButton");
+            
+
+
 
             Label text2 = new Label();
             text2.setText("Vietnamese");
@@ -125,11 +137,19 @@ public class DictionaryApplication extends Application {
             text4.setLayoutY(15);
             text4.setId("text4");
 
-        Label text5 = new Label();
-        text5.setText("Google Translate");
-        text5.setLayoutX(158);
-        text5.setLayoutY(190);
-        text5.setId("text5");
+            Label text5 = new Label();
+            text5.setText("Google Translate");
+            text5.setLayoutX(158);
+            text5.setLayoutY(190);
+            text5.setId("text5");
+
+            Label text6 = new Label();
+            text6.setText("");
+            text6.setLayoutX(150);
+            text6.setLayoutY(68);
+            text6.setId("text1");
+
+
 
             TextField addWord_input = new TextField();
             addWord_input.setLayoutX(10);
@@ -171,6 +191,7 @@ public class DictionaryApplication extends Application {
             add_text3.setLayoutX(18);
             add_text3.setLayoutY(150);
             add_text3.setId("text2");
+
 
             TextField subWord_input = new TextField();
             subWord_input.setLayoutX(10);
@@ -302,7 +323,7 @@ public class DictionaryApplication extends Application {
         root.getChildren().addAll(word_input,
                 word_output, word_list, rectangle1, addButton,
                 subButton, rePairButton, voiceButton,
-                text1, text2, text3, text4,word_APIoutput,APIbutton,text5);
+                text1, text2, text3, text4,word_APIoutput,APIbutton,text5,sameButton,text6);
         Scene sampleScreen = new Scene(root, 300, 510);
         sampleScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
         // addScreen.
@@ -368,26 +389,27 @@ public class DictionaryApplication extends Application {
         voiceButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                InputStream sound = null;
-                try {
-                    System.out.println(word_input.getText());
-                    Audio audio = Audio.getInstance();
-                    sound = audio.getAudio(word_input.getText(), Language.ENGLISH);
-                    audio.play(sound);
-                } catch (IOException | JavaLayerException ex) {
-                    Logger.getLogger(DictionaryApplication.class.getName()).log(Level.SEVERE, null, ex);
-                } finally {
-                    try {
-                        sound.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(DictionaryApplication.class.getName()).log(Level.SEVERE, null, ex);
-
-                    }
-                }
+                Voice voice = new Voice("kevin16");
+                String sayme = word_input.getText() ;
+                voice.say(sayme);
+            }
+        });
+        word_input.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                sameButton.setText(dictionaryManagement.sameWord(word_input.getText()));
+                text6.setText("Your mean :");
 
             }
         });
-
+        sameButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                word_input.setText(sameButton.getText());
+                text6.setText("");
+                sameButton.setText("");
+            }
+        });
 
 
         primaryStage.setScene(sampleScreen);

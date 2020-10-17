@@ -1,7 +1,7 @@
 appliance	đồ phụ tùng
 bred	nòi, giống
 predesigned	cho trước, thiết lập trước
-book	sách
+book	vở | sách
 about	ước chừng
 bring	cầm lại, đem lại, mang lại, xách lại, đưa lại
 entryway	lối đi vào
