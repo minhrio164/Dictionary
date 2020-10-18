@@ -115,7 +115,7 @@ public class DictionaryApplication extends Application {
             sameButton.setLayoutX(141);
             sameButton.setLayoutY(80);
             sameButton.setId("sameButton");
-            
+
 
 
 
@@ -288,7 +288,8 @@ public class DictionaryApplication extends Application {
         word_input.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                String str = word_input.getText();
+
+                String str = word_input.getText().toLowerCase();
                 word_output.setText(dictionaryManagement.dictionaryLookup(str));
                 List<String> listString = new ArrayList<>();
                 listString.clear();
@@ -324,7 +325,7 @@ public class DictionaryApplication extends Application {
                 word_output, word_list, rectangle1, addButton,
                 subButton, rePairButton, voiceButton,
                 text1, text2, text3, text4,word_APIoutput,APIbutton,text5,sameButton,text6);
-        Scene sampleScreen = new Scene(root, 300, 510);
+        Scene sampleScreen = new Scene(root, 300, 675);
         sampleScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
         // addScreen.
         Pane addViewScreen = new Pane();
@@ -334,12 +335,11 @@ public class DictionaryApplication extends Application {
         addScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
         addButton.setOnAction(e -> primaryStage.setScene(addScreen));
         goBackRoot.setOnAction(e -> primaryStage.setScene(sampleScreen));
-
         add_SummitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
-                dictionaryManagement.add(addWord_input.getText(), addword_output.getText());
+                dictionaryManagement.add(addWord_input.getText().toLowerCase(), addword_output.getText());
                 System.out.println(addWord_input.getText() + addword_output.getText());
                 dictionaryManagement.dictionaryExportToFile();
                 Alert add_alert = new Alert(Alert.AlertType.INFORMATION);
@@ -360,7 +360,7 @@ public class DictionaryApplication extends Application {
         sub_SummitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                dictionaryManagement.remove(subWord_input.getText());
+                dictionaryManagement.remove(subWord_input.getText().toLowerCase());
                 dictionaryManagement.dictionaryExportToFile();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("SUCCESS!" + "\n"+"Word deleted success : " + subWord_input.getText());
@@ -385,7 +385,7 @@ public class DictionaryApplication extends Application {
                 repair_alert.show();
             }
         });
-
+        // voice.
         voiceButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -397,9 +397,14 @@ public class DictionaryApplication extends Application {
         word_input.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                sameButton.setText(dictionaryManagement.sameWord(word_input.getText()));
-                text6.setText("Your mean :");
 
+                sameButton.setText(dictionaryManagement.sameWord(word_input.getText().toLowerCase()));
+                if (sameButton.getText() != "" ) {
+                    text6.setText("Your mean :");
+                }
+                else {
+                    text6.setText("");
+                }
             }
         });
         sameButton.setOnAction(new EventHandler<ActionEvent>() {

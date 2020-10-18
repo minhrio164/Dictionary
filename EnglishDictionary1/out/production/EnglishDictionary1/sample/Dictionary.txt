@@ -10,8 +10,8 @@ alphabet	bảng chữ cái
 briefing	sự chỉ dẫn tường tận
 a fortiori	huống hồ; huống là
 broadish	hơi rộng
-a font	thấu triệt; cặn kẽ; rõ ngọn nghành
 brigade	lữ đoàn
+a font	một phông chữ
 absent	vắng mặt
 bridecake	bánh cưới
 coiffeuse	thợ cắt tóc, thợ làm đầu
