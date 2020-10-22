@@ -1,37 +1,182 @@
-appliance	đồ phụ tùng
-bred	nòi, giống
-predesigned	cho trước, thiết lập trước
-book	vở | sách
+play	chơi
+parent	phụ huynh
+reason	lý do
+education	giáo dục
+year	năm
 about	ước chừng
-bring	cầm lại, đem lại, mang lại, xách lại, đưa lại
 entryway	lối đi vào
-apostil	lời ghi thêm bên lề (một văn kiện)
+bring	đem lại | cầm lại, đem lại, mang lại, xách lại, đưa lại
 alphabet	bảng chữ cái
-briefing	sự chỉ dẫn tường tận
+program	chương trình
 a fortiori	huống hồ; huống là
+put	đặt
+number	con số
+problem	vấn đề
 broadish	hơi rộng
-brigade	lữ đoàn
-a font	một phông chữ
+friend	người bạn
 absent	vắng mặt
-bridecake	bánh cưới
+state	trạng thái
 coiffeuse	thợ cắt tóc, thợ làm đầu
-all	tất cả
+write	viết
+case	trường hợp
 apperceive	(tâm lý học) tổng giác
 apparition	sự hiện ra, sự xuất hiện
+give	cho
+going	đi
+work	làm việc | công việc
+night	ban đêm
+want	muốn
+pool	số tiền đặt cọc; hợp nhất; gộp lại
+keep 	giữ
+come	đến
+community	cộng đồng
+accept	chấp nhận
+morning	buổi sáng
+appetitive	làm cho thèm (ăn)
+eye	mắt
+system	hệ thống
+provide	cung cấp
+erumpent	thực vật
+force	lực lượng
+word	từ
+begin	bắt đầu
+briny	mặn
+become	trở thành
+predesigned	cho trước, thiết lập trước
+study	học tập
+woman	phụ nữ
+fact	sự thật
+be	thì
+city	thành phố
+air	không khí
+turn	xoay
+believe	tin tưởng
+moment	hiện tại
+seem	hình như
+lot	từng phần
+result	kết quả
+fell	cảm thấy
+see	thấy
+world	thế giới
+get	lấy
+member	thành viên
+have	có
+man	đàn ông
+place	vị trí
+power	năng lượng
+hand	bàn tay
 a	a
+think	nghĩ
+include	bao gồm
+side	khía cạnh
+art	nghệ thuật
+set	đặt để
 bridal	đám cưới, tiệc cưới; liên hoan đám cưới
+question	câu hỏi
+change	thay đổi
+health	sức khỏe
+porous	xốp
+right	quyền lợi
+team	đội
+people	con người
+call	gọi | gọi
+help	giúp
+face	gương mặt
+ask	hỏi
+information	thông tin
+eonian	vĩnh cữu; vô cùng
+thing	sự vật
+story	câu chuyện
+country	đất nước
+door	cánh cửa
+use	dùng
+tell	nói
+run	chạy
+office	văn phòng
+do	làm
+body	cơ thể
+briefing	sự chỉ dẫn tường tận
+research	nghiên cứu
+hold	giữ
+mother	mẹ
+school	trường học
+find	tìm thấy
+leave	rời khỏi
+goverrnment	chính phủ
+day	ngày
+others	những cái khác
+group	nhóm
+all	tất cả
+area	khu vực
+law	luật pháp
+pose	đặt
+level	cấp bậc
+need	cần
+like	như
+polyphase	(vật lí) nhiều pha
+kind	loại
+pay	trả
+history	lịch sử
+girl	cô gái
+water	nước
+look	nhìn
+take	lấy
+month	tháng
+person	con người
+keep	giữ
+name	tên gọi
+know	biết
+try	thử
+job	nghề nghiệp
+party	bữa tiệc
+child	con cái
+appliance	đồ phụ tùng
+bred	nòi, giống
+game	trò chơi
+week	tuần
+student	học sinh
+line	vạch kẻ
+idea	ý tưởng
+book	vở | sách
+part	bộ phận
+father	cha
+kid	trẻ con
+show	trình diễn
+apostil	lời ghi thêm bên lề (một văn kiện)
+back	phía sau
+house	ngôi nhà
+life	cuộc sống
+point	điểm
+head	đầu
+teacher	giáo viên
+hour	giờ
+car	xe hơi
+brigade	lữ đoàn
+a font	một phông chữ
+company	công ty
+end	kết thúc
+bridecake	bánh cưới
+make	làm
+hear	nghe
+move	di chuyển
 breech	khoá nòng (súng)
 cohesively	gắn bó, liên kết
-pose	đặt
 ant	con kiến
-polyphase	(vật lí) nhiều pha
-pool	số tiền đặt cọc; hợp nhất; gộp lại
-porous	xốp
-accept	chấp nhận
+go	đi
+start	bắt đầu
+war	chiến tranh
+say	nói
+follow	theo
+way	con đường
+room	căn phòng
 bristly	đầy lông cứng
-appetitive	làm cho thèm (ăn)
-erumpent	thực vật
-eonian	vĩnh cữu; vô cùng
+home	nhà
+minute	phút
+money	tiền bạc
+service	dịch vụ
+mean	nghĩa là
+time	thời gian
+family	gia đình
 apartment	căn hộ
 append	treo vào
-briny	mặn
+president	chủ tịch

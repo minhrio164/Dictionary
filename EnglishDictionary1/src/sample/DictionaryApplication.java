@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -170,7 +171,7 @@ public class DictionaryApplication extends Application {
 
             Button add_SummitButton = new Button();
             add_SummitButton.setText("Add");
-            add_SummitButton.setLayoutX(110);
+            add_SummitButton.setLayoutX(115);
             add_SummitButton.setLayoutY(230);
             add_SummitButton.setId("buttonAdd");
 
@@ -212,7 +213,7 @@ public class DictionaryApplication extends Application {
 
             Button sub_SummitButton = new Button();
             sub_SummitButton.setText("Remove");
-            sub_SummitButton.setLayoutX(110);
+            sub_SummitButton.setLayoutX(105);
             sub_SummitButton.setLayoutY(145);
             sub_SummitButton.setId("buttonSub");
 
@@ -282,6 +283,7 @@ public class DictionaryApplication extends Application {
         List<String> listString = new ArrayList<>();
         listString.clear();
         listString = dictionaryManagement.dictionarySeacher(str);
+        Collections.sort(listString);
         word_list.getItems().clear();
         for (int i = 0; i < listString.size(); i++)
             word_list.getItems().add(listString.get(i));
@@ -303,6 +305,14 @@ public class DictionaryApplication extends Application {
             }
 
 
+        });
+        word_list.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                String str  = word_list.getSelectionModel().getSelectedItem() ;
+                word_input.setText(str);
+                word_output.setText(dictionaryManagement.dictionaryLookup(word_input.getText()));
+            }
         });
         APIbutton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -331,7 +341,7 @@ public class DictionaryApplication extends Application {
         Pane addViewScreen = new Pane();
         addViewScreen.setId("rootPane");
         addViewScreen.getChildren().addAll(addWord_input, addword_output, goBackRoot, add_SummitButton, add_text1, add_text2, add_text3);
-        Scene addScreen = new Scene(addViewScreen, 300, 300);
+        Scene addScreen = new Scene(addViewScreen, 300, 280);
         addScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
         addButton.setOnAction(e -> primaryStage.setScene(addScreen));
         goBackRoot.setOnAction(e -> primaryStage.setScene(sampleScreen));
@@ -344,8 +354,10 @@ public class DictionaryApplication extends Application {
                 dictionaryManagement.dictionaryExportToFile();
                 Alert add_alert = new Alert(Alert.AlertType.INFORMATION);
                 add_alert.setHeaderText(null);
-                add_alert.setContentText("SUCCESS!"+"\n"+"Word added success : " + addWord_input.getText());
+                add_alert.setContentText("SUCCESS!"+"\n"+"Word added success : " + addWord_input.getText() + " - " + addword_output.getText());
                 add_alert.show();
+                addWord_input.setText("");
+                addword_output.setText("");
 
             }
         });
@@ -371,7 +383,7 @@ public class DictionaryApplication extends Application {
         Pane rePairViewScreen = new Pane();
         rePairViewScreen.setId("rootPane");
         rePairViewScreen.getChildren().addAll(rePair_goBackRoot, rePair_SummitButton, repair_text1, rePairWord_input, rePairword_output, repair_text2, repair_text3);
-        Scene rePairScreen = new Scene(rePairViewScreen, 300, 300);
+        Scene rePairScreen = new Scene(rePairViewScreen, 300, 280);
         rePairScreen.getStylesheets().add(getClass().getResource("DictionaryCSS.css").toExternalForm());
         rePairButton.setOnAction(e -> primaryStage.setScene(rePairScreen));
         rePair_goBackRoot.setOnAction(e -> primaryStage.setScene(sampleScreen));
@@ -397,13 +409,13 @@ public class DictionaryApplication extends Application {
         word_input.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-                sameButton.setText(dictionaryManagement.sameWord(word_input.getText().toLowerCase()));
-                if (sameButton.getText() != "" ) {
-                    text6.setText("Your mean :");
-                }
-                else {
-                    text6.setText("");
+                if(word_output.getText().length() <=1) {
+                    sameButton.setText(dictionaryManagement.sameWord(word_input.getText().toLowerCase()));
+                    if (sameButton.getText() != "") {
+                        text6.setText("Your mean :");
+                    } else {
+                        text6.setText("");
+                    }
                 }
             }
         });
